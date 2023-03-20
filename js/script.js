@@ -1,3 +1,13 @@
+
+function uuidv4() {
+      return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+	          var r = (Math.random() * 16) | 0,
+		            v = c == "x" ? r : (r & 0x3) | 0x8;
+	          return v.toString(16);
+      })}
+
+var session_id=uuidv4()
+initial_message={"recipient_id":session_id,"text": "Καλως ήρθατε στο VoiceBot! Πώς μπορώ να σας εξυπηρετήσω;"}
 $(function() {
   var INDEX = 0; 
   $("#chat-submit").click(function(e) {
@@ -17,17 +27,18 @@ $(function() {
   function sayToBot(message) {
     console.log("User Message:", message)
     $.ajax({
-      url: 'http://localhost:5005/webhooks/rest/webhook',
+      url: 'https://hostname:port/webhooks/rest/webhook',
       type: 'POST',
-      contentType: 'application/json',
+      contentType: 'application/json; charset="utf-8"',
       data: JSON.stringify({
         "message": message,
-        "sender": "Sagar"
+        "sender": session_id
       }),
       success: function (data, textStatus) {
         if(data != null){
-            console.log("Success : "+data);
-            generate_message(data,'user');
+            console.log("Success : "+ data);
+            obj=JSON.parse(data);
+            generate_message(obj,'user');
         }
       },
       error: function (errorMessage) {
@@ -44,7 +55,7 @@ $(function() {
     var str="";
     var msg="";
     if (val.length < 1){
-      msg="Could not connect to server... :( Please try again.";
+      msg="..."; 
     }
     else if(type=="self")
     {
@@ -52,14 +63,14 @@ $(function() {
     }
     else if(typeof(val)=="string" && type=="user")
     {
-      msg=val;
+      msg=val
     }
     else
     {
       for (i = 0; i < val.length; i++) {
 				//check if there is text message
 				if (val[i].hasOwnProperty("text")) {
-					msg+=val[i].text+"<br>";
+					msg+=val[i].text.toString('utf-8')+"<br>";
 				}
 
 				//check if there is image

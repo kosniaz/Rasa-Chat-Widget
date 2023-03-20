@@ -53,7 +53,7 @@ margin-top: 8px;
 	position: fixed;
 	bottom: 50px;
 	right: 50px;
-	background: #1DB551;
+	background: #008B8B;
 	width: 65px;
 	height: 65px;
 	border-radius: 50%;
@@ -93,7 +93,7 @@ strong{
   position:fixed;
   right:30px;
   bottom:50px;  
-  width:350px;
+  width:650px;
   max-width: 85vw;
   max-height:100vh;
   border-radius:5px;  
@@ -106,7 +106,7 @@ strong{
   cursor:pointer;
 }
 .chat-box-header {
-	background: #1DB551;
+	background: #008B8B;
 	height: 50px;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -177,7 +177,7 @@ strong{
   box-shadow:none;
   border:none;
   border-radius:50%;
-  color:#1DB551;
+  color:#008B8B;
   width:35px;
   height:35px;  
 }
@@ -187,12 +187,12 @@ strong{
   overflow-y:auto;
 }
 .img_user{
-  background: url('../img/bot.png');
+  background: url('../img/user.png');
   background-size: cover;
   background-position: center;
 }
 .img_self{
-  background: url('../img/user.png');
+  background: url('../img/ANGRY-ON_HOLD.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -251,7 +251,7 @@ strong{
 .chat-msg.self > .cm-msg-text {  
   float:right;
   margin-right:10px;
-  background: #1DB551;
+  background: #008B8B;
   color:white;
   box-shadow: 1px 2px 3px gray;
 }
