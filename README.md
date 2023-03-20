@@ -27,7 +27,7 @@ Rasa server works with HTTP POST, with -H "Content-Type: application/json" and t
 }
 ```
 
-The response looks like this
+The response is a list of the following objects:
 
 ```
 {
@@ -37,3 +37,9 @@ The response looks like this
 ```
 
 where the `recipient_id` has always the same value as the first `sender` value that was used to initialize the conversation. 
+
+Curl example
+```
+curl -X POST -H "Content-Type: application/json" --data ' { "message" : "Silence", "sender" : "VERYLONGUUUIDTOIDENTIFYCONVERSATION"}' https://hostname:port/webhooks/rest/webhook
+ ```
+
