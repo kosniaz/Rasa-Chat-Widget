@@ -36,4 +36,4 @@ The response looks like this
 }
 ```
 
-where the recipient_id has always the same value as the firstr sender field that was used to initialize the conversation. 
+where the `recipient_id` has always the same value as the first `sender` value that was used to initialize the conversation. 
