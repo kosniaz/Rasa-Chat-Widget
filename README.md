@@ -15,3 +15,25 @@ This UI can be use in any website only have to change the URL in js/script.js fi
 # Chat Widget UI
 ![chat_widget](https://raw.githubusercontent.com/sagarvanave/Rasa-Chat-Widget/master/Chat_Widget.png)
 
+# Appendix: rasa http api 
+
+
+
+Rasa server works with HTTP POST, with -H "Content-Type: application/json" and the data is like this
+```
+      {
+        "message": str,
+        "sender": str
+      }
+```
+
+The response looks like this
+
+```
+       {
+        "text": str,
+        "recipient_id": str
+      }
+```
+
+where the recipient_id has always the same value as the firstr sender field that was used to initialize the conversation. 
