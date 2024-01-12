@@ -27,7 +27,7 @@ $(function() {
   function sayToBot(message) {
     console.log("User Message:", message)
     $.ajax({
-      url: 'https://hostname:port/webhooks/rest/webhook',
+      url: 'https://hostname:port/endpoint',
       type: 'POST',
       contentType: 'application/json; charset="utf-8"',
       data: JSON.stringify({
@@ -37,7 +37,8 @@ $(function() {
       success: function (data, textStatus) {
         if(data != null){
             console.log("Success : "+ data);
-            obj=JSON.parse(data);
+            //obj=JSON.parse(data);
+            obj=data
             generate_message(obj,'user');
         }
       },
